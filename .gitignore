@@ -1,2 +1,8 @@
 .vscode
-out
+out/*
+!out/coralmicro-app
+!out/coralmicro-app.data
+!out/coralmicro-app.libs
+!out/coralmicro-app.stripped
+!out/image.hex
+!out/image.srec
