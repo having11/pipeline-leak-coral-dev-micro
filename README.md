@@ -17,11 +17,11 @@ cd pipeline-leak-coral-dev-micro
 
 cmake -B out -S .
 
-make -C out -j8
+make -C out -j$(nrpoc)
 ```
 
-To maximize your CPU usage, replace `-j8` with either `-j$(nproc)` on Linux or
-`-j$(sysctl -n hw.ncpu)` on Mac.
+To maximize your CPU usage, replace `-jN` with either `-j$(nproc)` on Linux or
+`-j$(sysctl -n hw.ncpu)` on Mac, where `N` is the number of cores.
 
 
 ### 3. Flash it to your board
