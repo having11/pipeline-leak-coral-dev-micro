@@ -6,16 +6,22 @@ namespace msg {
 #include "libs/base/ipc_message_buffer.h"
 
 enum class MessageType : uint8_t {
+    kAck,
     kKeywordSpotted,
-    kAck
+    kObjectDetectionDone,
 };
 
 struct MessageAudioFound {
     bool found;
 };
 
+struct MessageObjectDetectionDone {
+    bool done;
+};
+
 union MessageData {
     MessageAudioFound audioFound;
+    MessageObjectDetectionDone detectionDone;
 };
 
 struct Message {

@@ -14,19 +14,23 @@ file(GLOB all_m4_src
 
 add_executable_m7(pipeline_detection
         ${all_m7_src}
+        DATA
+        ${PROJECT_SOURCE_DIR}/main/models/yamnet_test_audio.bin
+        ${PROJECT_SOURCE_DIR}/main/models/${model_name}
         M4_EXECUTABLE
         pipeline_detection_m4
 )
 
 target_link_libraries(pipeline_detection
         libs_base-m7_freertos
+        libs_base-m7_http_server
+        libs_jpeg_m7
+        libs_nxp_rt1176-sdk_wiced
+        libs_base-m7_wifi
 )
 
 add_executable_m4(pipeline_detection_m4
         ${all_m4_src}
-        DATA
-        ${PROJECT_SOURCE_DIR}/main/models/yamnet_test_audio.bin
-        ${PROJECT_SOURCE_DIR}/main/models/${model_name}
 )
 
 target_include_directories(pipeline_detection_m4 PUBLIC
@@ -35,5 +39,4 @@ target_include_directories(pipeline_detection_m4 PUBLIC
 
 target_link_libraries(pipeline_detection_m4
         libs_base-m4_freertos
-        libs_flatbuffers
 )
