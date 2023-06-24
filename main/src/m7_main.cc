@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <bitset>
 
 #include "libs/base/led.h"
 #include "third_party/freertos_kernel/include/FreeRTOS.h"
@@ -7,7 +6,7 @@
 #include "libs/base/ipc_m7.h"
 #include "libs/base/check.h"
 
-#include "IPC_message.h"
+#include "ipc_message.h"
 
 using namespace coralmicro;
 

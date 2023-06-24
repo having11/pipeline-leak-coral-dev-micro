@@ -1,5 +1,7 @@
 include_directories(${PROJECT_SOURCE_DIR}/main/include)
 
+set(model_name yamnet_spectra_in.tflite)
+
 file(GLOB all_m7_src
         "${PROJECT_SOURCE_DIR}/main/include/*.h"
         "${PROJECT_SOURCE_DIR}/main/src/m7_*.cc"
@@ -22,6 +24,9 @@ target_link_libraries(pipeline_detection
 
 add_executable_m4(pipeline_detection_m4
         ${all_m4_src}
+        DATA
+        ${PROJECT_SOURCE_DIR}/main/models/yamnet_test_audio.bin
+        ${PROJECT_SOURCE_DIR}/main/models/${model_name}
 )
 
 target_link_libraries(pipeline_detection_m4
