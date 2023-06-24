@@ -60,7 +60,10 @@ void handleM4Message(const uint8_t data[kIpcMessageBufferDataSize]) {
 }
 
 HttpServer::Content uriHandler(const char* uri) {
-    if (StrEndsWith(uri, M7Constant::kCameraStreamUrlPrefix)) {
+    if (StrEndsWith(uri, "index")) {
+        return std::string(M7Constant::kIndexFileName);
+    }
+    else if (StrEndsWith(uri, M7Constant::kCameraStreamUrlPrefix)) {
         std::vector<uint8_t> buf(M7Constant::kWidth * M7Constant::kHeight *
                                 CameraFormatBpp(M7Constant::kFormat));
         auto fmt = CameraFrameFormat{
@@ -162,7 +165,7 @@ void init() {
 
     // Run tensorflow on test input file.
     std::vector<uint8_t> yamnet_test_input_bin;
-    if (!LfsReadFile("/models/yamnet_test_audio.bin", &yamnet_test_input_bin)) {
+    if (!LfsReadFile("/yamnet_test_audio.bin", &yamnet_test_input_bin)) {
         printf("Failed to load test input!\r\n");
         vTaskSuspend(nullptr);
     }
@@ -240,6 +243,10 @@ extern "C" [[noreturn]] void app_main(void *param) {
     (void)param;
 
     xCameraSema = xSemaphoreCreateBinaryStatic(&xCameraSemaBuffer);
+
+    printf("Started\r\n");
+    LedSet(Led::kUser, false);
+    vTaskDelay(pdMS_TO_TICKS(2000));
 
     main();
 }

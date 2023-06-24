@@ -8,6 +8,7 @@ namespace M7Constant {
     using namespace coralmicro;
 
     constexpr char kCameraStreamUrlPrefix[] = "/camera_stream";
+    constexpr char kIndexFileName[] = "/coral_micro_camera.html";
 
     constexpr CameraMode kMode = CameraMode::kStreaming;
     constexpr CameraFormat kFormat = CameraFormat::kRgb;
@@ -33,7 +34,7 @@ namespace M7Constant {
     constexpr float kThreshold = 0.3;
     constexpr int kTopK = 5;
 
-    constexpr char kModelName[] = "/models/yamnet_spectra_in.tflite";
+    constexpr char kModelName[] = "/yamnet_spectra_in.tflite";
     constexpr bool kUseTpu = false;
 }
 
