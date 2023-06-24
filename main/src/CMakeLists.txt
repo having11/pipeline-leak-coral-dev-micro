@@ -29,6 +29,11 @@ add_executable_m4(pipeline_detection_m4
         ${PROJECT_SOURCE_DIR}/main/models/${model_name}
 )
 
+target_include_directories(pipeline_detection_m4 PUBLIC
+    ${PROJECT_SOURCE_DIR}/coralmicro/third_party/tflite-micro
+)
+
 target_link_libraries(pipeline_detection_m4
         libs_base-m4_freertos
+        libs_flatbuffers
 )
