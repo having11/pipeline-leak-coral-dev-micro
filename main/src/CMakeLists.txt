@@ -1,7 +1,5 @@
 include_directories(${PROJECT_SOURCE_DIR}/main/include)
 
-set(model_name yamnet_spectra_in.tflite)
-
 file(GLOB all_m7_src
         "${PROJECT_SOURCE_DIR}/main/src/m7_*.cc"
 )
@@ -14,7 +12,7 @@ add_executable_m7(pipeline_detection
         m7_main.cc
         DATA
         ${PROJECT_SOURCE_DIR}/main/models/yamnet_test_audio.bin>/yamnet_test_audio.bin
-        ${PROJECT_SOURCE_DIR}/main/models/${model_name}>/${model_name}
+        ${PROJECT_SOURCE_DIR}/main/models/yamnet_spectra_in.tflite>/yamnet_spectra_in.tflite
         ${PROJECT_SOURCE_DIR}/main/web/coral_micro_camera.html>/coral_micro_camera.html
         M4_EXECUTABLE
         pipeline_detection_m4

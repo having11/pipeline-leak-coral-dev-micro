@@ -1,8 +1,8 @@
 .vscode
 out/*
-!out/coralmicro-app
-!out/coralmicro-app.data
-!out/coralmicro-app.libs
-!out/coralmicro-app.stripped
+!out/pipeline_detection
+!out/pipeline_detection.data
+!out/pipeline_detection.libs
+!out/pipeline_detection.stripped
 !out/image.hex
 !out/image.srec
